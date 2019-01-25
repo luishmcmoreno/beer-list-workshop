@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>BeerBank</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="primary">
+    <app-search (onSearch)="search($event)"></app-search>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-beer-list [beerList]="beers" (onBeerClicked)="onBeerClicked($event)"></app-beer-list>
+  <ion-infinite-scroll threshold="300px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingText="Carregando cervejas..." ></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
